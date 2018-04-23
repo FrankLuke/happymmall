@@ -883,24 +883,14 @@ var _reactDom = __webpack_require__(18);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-__webpack_require__(27);
-
-__webpack_require__(28);
-
-__webpack_require__(29);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
+var jsx = _react2.default.createElement(
     'div',
     null,
-    _react2.default.createElement('i', { className: 'fa fa-address-book' }),
-    _react2.default.createElement(
-        'h1',
-        null,
-        'Hello World'
-    )
-), document.getElementById('app'));
+    'jsx...'
+);
+_reactDom2.default.render(jsx, document.getElementById('app'));
 
 /***/ }),
 /* 15 */
@@ -18209,24 +18199,6 @@ function camelize(string) {
 }
 
 module.exports = camelize;
-
-/***/ }),
-/* 27 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 28 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 ],[14]);

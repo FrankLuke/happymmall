@@ -1,5 +1,5 @@
 const path = require('path');
-const webpack=require('webpack');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -7,8 +7,14 @@ module.exports = {
     entry: './src/app.jsx',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath:'/dist/',
+        publicPath: '/dist/',
         filename: 'js/my-app.js'
+    },
+    resolve: {
+        alias: {
+            page: path.resolve(__dirname, 'src/page'),
+            component: path.resolve(__dirname, 'src/component')
+        }
     },
     module: {
         rules: [
@@ -19,7 +25,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env','react']
+                        presets: ['env', 'react']
                     }
                 }
             },
@@ -27,43 +33,39 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    fallback:'style-loader',
-                    use:'css-loader'
+                    fallback: 'style-loader',
+                    use: 'css-loader'
                 })
             },
             //sass文件处理
             {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
-                    fallback:'style-loader',
-                    use:['css-loader','sass-loader']
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
                 })
             },
             //图片处理
             {
                 test: /\.(jpg|png|gif)$/,
-                use: [
-                    {
-                        loader:'url-loader',
-                        options:{
-                            limit:8192,
-                            name:'resource/[name].[ext]'
-                        }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: 'resource/[name].[ext]'
                     }
-                ]
+                }]
             },
             //字体图标处理
             {
                 test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
-                use: [
-                    {
-                        loader:'url-loader',
-                        options:{
-                            limit:8192,
-                            name:'resource/[name].[ext]'
-                        }
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: 'resource/[name].[ext]'
                     }
-                ]
+                }]
             }
         ]
     },
@@ -76,11 +78,14 @@ module.exports = {
         new ExtractTextPlugin('css/[name].css'),
         //提取公共模块
         new webpack.optimize.CommonsChunkPlugin({
-            name:'common',
-            filename:'js/base.js'
+            name: 'common',
+            filename: 'js/base.js'
         })
     ],
-    devServer:{
-        port:'8086'
+    devServer: {
+        port: '8086',
+        historyApiFallback: {
+            index: '/dist/index.html'
+        }
     }
 };
