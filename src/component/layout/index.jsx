@@ -1,19 +1,22 @@
 import React from 'react';
+
+import Topnav from 'component/top-nav/index.jsx';
+import Sidenav from 'component/side-nav/index.jsx';
+
 import './theme.css';
 
-class Layout extends React.Component{
-    constructor(props){
+class Layout extends React.Component {
+    constructor(props) {
         super(props)
     }
-    render (){
+    render() {
         return (
             <div id="wrapper">
-            sdfafasdfa
-            {/* <Topnav/>
-            <Sidenav/> */}
-            {
-                this.props.children
-            }
+                <Topnav />
+                <Sidenav />
+                {
+                    this.props.children
+                }
             </div>
         )
     }
