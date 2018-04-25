@@ -1,70 +1,53 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
-class NavSide extends React.Component{
-    constructor(){
+class NavSide extends React.Component {
+    constructor() {
         super()
     }
-    return (
-<div className="navbar-default navbar-side" role="navigation">
-            <div className="sidebar-collapse">
-                <ul className="nav" id="main-menu">
+    render() {
+        return (
+            <div className="navbar-default navbar-side">
+                <div className="sidebar-collapse">
+                    <ul className="nav">
+                        <li>
+                            <NavLink activeClassName="active-menu" to="/">
+                                <i className="fa fa-dashboard"></i>
+                                <span>首页</span>
+                            </NavLink>
+                        </li>
+                        <li className="active">
+                            <Link to="/product"><i className="fa fa-sitemap"></i> 商品<span className="fa arrow"></span></Link>
+                            <ul className="nav nav-second-level collapse in">
+                                <li>
+                                    <NavLink to="/product-manage">商品管理</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to="/product-category">品类管理</NavLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="active">
+                            <Link to="/order"><i className="fa fa-sitemap"></i> 订单<span className="fa arrow"></span></Link>
+                            <ul className="nav nav-second-level collapse in">
+                                <li>
+                                    <NavLink to="/order">订单管理</NavLink>
+                                </li>
+                            </ul>
+                        </li>
+                        <li className="active">
+                            <Link to="/user"><i className="fa fa-sitemap"></i> 用户<span className="fa arrow"></span></Link>
+                            <ul className="nav nav-second-level collapse in">
+                                <li>
+                                    <NavLink to="/user">用户管理</NavLink>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
 
-                    <li>
-                        <a className="active-menu" href="index.html"><i className="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="ui-elements.html"><i className="fa fa-desktop"></i> UI Elements</a>
-                    </li>
-					<li>
-                        <a href="chart.html"><i className="fa fa-bar-chart-o"></i> Charts</a>
-                    </li>
-                    <li>
-                        <a href="tab-panel.html"><i className="fa fa-qrcode"></i> Tabs &amp; Panels</a>
-                    </li>
-                    
-                    <li>
-                        <a href="table.html"><i className="fa fa-table"></i> Responsive Tables</a>
-                    </li>
-                    <li>
-                        <a href="form.html"><i className="fa fa-edit"></i> Forms </a>
-                    </li>
-
-
-                    <li>
-                        <a href="#"><i className="fa fa-sitemap"></i> Multi-Level Dropdown<span className="fa arrow"></span></a>
-                        <ul className="nav nav-second-level collapse">
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Link<span className="fa arrow"></span></a>
-                                <ul className="nav nav-third-level collapse">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i className="fa fa-fw fa-file"></i> Empty Page</a>
-                    </li>
-                </ul>
-
+                </div>
             </div>
-
-        </div>
-    )
+        )
+    }
 }
 export default NavSide;

@@ -9,6 +9,11 @@ http://creativecommons.org/licenses/by/3.0/
     COMMON  STYLES    
 ------------------------------------------------*/
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
 }
@@ -22,14 +27,6 @@ body {
     padding: 15px 15px;
     min-height: 600px;
     background: #f3f3f3;
-}
-
-#page-inner {
-    width: 100%;
-    margin: 10px 20px 10px 0px;
-    background-color: transparent;
-    padding: 10px;
-    min-height: 1200px;
 }
 
 .text-center {
@@ -450,6 +447,10 @@ footer p {
     background: transparent;
 }
 
+.top-navbar .nav>li:hover .dropdown-menu {
+    display: block;
+}
+
 .top-navbar .dropdown-menu {
     min-width: 230px;
     border-radius: 0 0 4px 4px;
@@ -562,6 +563,11 @@ ul.nav.nav-second-level.collapse.in {
 
 .top-navbar .nav>li>a>i {
     margin-right: 2px;
+}
+
+.top-navbar .nav>li>a>span {
+    color: #666;
+    margin-right: 4px;
 }
 
 .top-navbar .navbar-brand:hover {
