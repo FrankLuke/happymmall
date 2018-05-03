@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Redirect, Link, Switch } from 'react-ro
 
 import Login from 'page/login/index.jsx';
 import Layout from 'component/layout/index.jsx';
+import ErrorPage from 'page/error/index.jsx';
 import Home from 'page/home/index.jsx';
 class App extends React.Component {
     render() {
@@ -20,6 +21,7 @@ class App extends React.Component {
                                 <Route exact path='/product-category' component={Home} />
                                 <Route exact path='/order' component={Home} />
                                 <Route exact path='/user' component={Home} />
+                                <Route component={ErrorPage} />
                             </Switch>
                         </Layout>
                     )} />

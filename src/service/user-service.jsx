@@ -25,6 +25,7 @@ class User{
                 msg:'密码不能为空！'
             }
         }
+        return true;
     }
     logout(){
         return _mm.request({
