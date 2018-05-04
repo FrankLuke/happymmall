@@ -6,7 +6,7 @@ class MUtil{
                 url:param.url||'',
                 dataType:param.dataType||'json',
                 data:param.data||null,
-                success(res){
+                success:(res)=>{
                     console.log(res);
                     if(res.status===0){
                         typeof resolve==='function'&&resolve(res.data,res.msg);
@@ -16,7 +16,7 @@ class MUtil{
                         typeof reject==='function'&&reject(res.msg||res.data);
                     }
                 },
-                error(err){
+                error:(err)=>{
                     console.log(err); 
                     typeof reject==='function'&&reject(err.statusText);                       
                 }
@@ -36,7 +36,11 @@ class MUtil{
     }
     //错误提示
     errorTips(errMsg){
-        alert(errMsg||'something is wrong')
+        alert(errMsg||'something is wrong');
+    }
+    //成功提示
+    successTips(successMsg){
+        alert(successMsg||'get data success');
     }
     setStorage(name,data){
         let dataType=typeof data;
