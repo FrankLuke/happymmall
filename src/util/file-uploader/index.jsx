@@ -1,5 +1,5 @@
 import React from 'react';
-import FileUpload from 'react-fileupload';
+import FileUpload from './react-fileupload.jsx';
 
 class FileUploader extends React.Component{
     render(){
@@ -7,17 +7,17 @@ class FileUploader extends React.Component{
             baseUrl:'/manage/product/upload.do',
             fileFieldName:'upload_file',
             dataType:'json',
-            uploadSuccess:(res)=>{
-                console.log(res);
+            chooseAndUpload:true,
+            uploadSuccess:res=>{
+                this.props.onSuccess(res.data);
             },
-            uploadError:(err)=>{
-                console.log(err);
+            uploadError:err=>{
+                this.props.onError(err.message||'上传图片出错了');
             }
         }
         return (
             <FileUpload options={options}>
-                <button ref="chooseBtn">choose</button>
-                <button ref="uploadBtn">upload</button>
+                <button className="btn btn-default btn-xs" ref="chooseAndUpload">请选择图片</button>
             </FileUpload>
         )
     }

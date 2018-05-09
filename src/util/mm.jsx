@@ -8,13 +8,13 @@ class MUtil{
                 data:param.data||null,
                 success:(res)=>{
                     console.log(res);
-                    if(res.status===0){
-                        typeof resolve==='function'&&resolve(res.data,res.msg);
-                    }else if(res.status===10){//尚未登录的强制登录
-                        this.doLogin();
-                    }else{
-                        typeof reject==='function'&&reject(res.msg||res.data);
-                    }
+                    // if(res.status===0){
+                    //     typeof resolve==='function'&&resolve(res.data,res.msg);
+                    // }else if(res.status===10){//尚未登录的强制登录
+                    //     this.doLogin();
+                    // }else{
+                    //     typeof reject==='function'&&reject(res.msg||res.data);
+                    // }
                 },
                 error:(err)=>{
                     console.log(err); 
