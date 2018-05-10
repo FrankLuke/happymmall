@@ -65,6 +65,9 @@ class CategorySelector extends React.Component {
     }
     //选择一级品类
     onFirstCategoryChange(){
+        if(this.props.readOnly){
+            return;
+        }
         let newValue=e.target.value||0;
         this.setState({
             firstCategoryId:newValue,
@@ -78,6 +81,9 @@ class CategorySelector extends React.Component {
     }
     //选择二级品类
     onSecondCategoryChange(){
+        if(this.props.readOnly){
+            return;
+        }
         let newValue=e.target.value||0;
         this.setState({
             secondCategoryId:newValue
@@ -103,6 +109,7 @@ class CategorySelector extends React.Component {
             <div className="col-md-8">
                 <select className="form-control cate-select"
                     value={this.state.firstCategoryId}
+                    readOnly={this.state.readOnly}
                     onChange={e=>this.onFirstCategoryChange(e)}>
                     <option value="">请选择一级分类</option>
                     {
@@ -113,6 +120,7 @@ class CategorySelector extends React.Component {
                 {this.state.secondCategoryList.length>0?
                     (<select className="form-control cate-select"
                         value={this.state.secondCategoryId}
+                        readOnly={this.state.readOnly}
                         onChange={e=>this.onSecondCategoryChange(e)}>
                         <option value="">请选择二级分类</option>
                         {
