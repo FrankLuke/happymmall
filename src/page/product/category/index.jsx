@@ -78,7 +78,14 @@ class CategoryList extends React.Component {
         });
         return (
             <div id="page-wrapper">
-                <PageTitle title="品类列表"/>
+                <PageTitle title="品类列表">
+                    <div className="page-header-right">
+                        <Link className="btn btn-primary" to="/product-category/add">
+                            <i className="fa fa-plus"></i>
+                            <span>添加品类</span>
+                        </Link>
+                    </div>
+                </PageTitle>
                 <div className="row">
                     <div className="col-md-12">
                         <p>父品类ID：{this.state.parentCategoryId}</p>
